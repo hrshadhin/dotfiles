@@ -1,0 +1,12 @@
+[user]
+	name = H.R. Shadhin
+	email = dev@hrshadhin.me
+[init]
+	defaultBranch = master
+
+[core]
+	editor = nano +15
+	eol = lf
+	autocrlf = false
+[commit]
+	template = ~/.config/git/commit-conventions.txt

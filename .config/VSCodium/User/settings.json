@@ -1,0 +1,7 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "'Source Code Pro', 'Hack', monospace",
+    "editor.formatOnSave": true,
+    "vscode-lua-format.configPath": "/home/hbot/.config/VSCodium/User/lua-formatter.config"
+}
