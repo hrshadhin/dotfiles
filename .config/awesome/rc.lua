@@ -53,11 +53,12 @@ do
 end
 
 local themes = {
-    "archmix" -- 1
+    "archmix", -- 1
+    "archmix-lite" -- 2
 }
 
 -- choose your theme here
-local chosen_theme = themes[1]
+local chosen_theme = themes[2]
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
@@ -83,31 +84,31 @@ awful.layout.layouts = {
     -- awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
-    awful.layout.suit.floating,
+    awful.layout.suit.floating
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    lain.layout.cascade,
+    -- awful.layout.suit.magnifier,
+    -- lain.layout.cascade,
     -- lain.layout.cascade.tile,
-    lain.layout.centerwork,
+    -- lain.layout.centerwork,
     -- lain.layout.centerwork.horizontal,
-    lain.layout.termfair
+    -- lain.layout.termfair
     -- lain.layout.termfair.center
 }
 
-lain.layout.termfair.nmaster = 3
-lain.layout.termfair.ncol = 1
-lain.layout.termfair.center.nmaster = 3
-lain.layout.termfair.center.ncol = 1
-lain.layout.cascade.tile.offset_x = 2
-lain.layout.cascade.tile.offset_y = 32
-lain.layout.cascade.tile.extra_padding = 5
-lain.layout.cascade.tile.nmaster = 5
-lain.layout.cascade.tile.ncol = 2
+-- lain.layout.termfair.nmaster = 3
+-- lain.layout.termfair.ncol = 1
+-- lain.layout.termfair.center.nmaster = 3
+-- lain.layout.termfair.center.ncol = 1
+-- lain.layout.cascade.tile.offset_x = 2
+-- lain.layout.cascade.tile.offset_y = 32
+-- lain.layout.cascade.tile.extra_padding = 5
+-- lain.layout.cascade.tile.nmaster = 5
+-- lain.layout.cascade.tile.ncol = 2
 
 -- Tag & tasklist mouse binding
 -- LuaFormatter off
@@ -355,6 +356,12 @@ globalkeys = gears.table.join(
     -- Applications
     awful.key({modkey}, "b", function() awful.util.spawn(browser) end,
         {description = "firefox", group = "applications"}),
+    awful.key({modkey, altkey}, "b", function() awful.spawn.with_shell(string.format("%s/.config/awesome/riis.sh browser", os.getenv("HOME"))) end,
+        {description = "chromium", group = "applications"}),
+    awful.key({modkey, altkey}, "d", function() awful.spawn.with_shell(string.format("%s/.config/awesome/riis.sh browser-dev", os.getenv("HOME"))) end,
+        {description = "chromium dev profile", group = "applications"}),
+    awful.key({modkey, altkey}, "o", function() awful.spawn.with_shell(string.format("%s/.config/awesome/riis.sh browser-office", os.getenv("HOME"))) end,
+        {description = "chromium office profile", group = "applications"}),
 
     -- Screenshot
     awful.key({}, "Print", function() awful.spawn.with_shell(screenshot_full_cmd) end,

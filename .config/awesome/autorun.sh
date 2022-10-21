@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-function run {
-  if ! pgrep -f $1 ;
-  then
-    $@&
+function run() {
+  if ! pgrep -f $1; then
+    $@ &
   fi
 }
 
@@ -13,7 +12,7 @@ run feh --randomize --bg-fill $HOME/.backgrounds/*
 # run ffplay -nodisp -autoexit /opt/psounds/startup-01.mp3
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run numlockx
-run clipit
+run copyq
 run workrave
 run redshift-gtk -l manual
 run $HOME/.bin/quotes.sh
