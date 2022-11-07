@@ -30,7 +30,7 @@ local function factory(args)
         helpers.async(cmd, function(out)
             notification_text = out
             local sum = 0
-            for d in out:gmatch("%d") do sum = sum + d end
+            for d in out:gmatch("%d+") do sum = sum + d end
             Totalmail = math.floor(sum)
 
             widget = mail.widget

@@ -1,0 +1,106 @@
+-- This config will work on 1.10 and later versions
+
+conky.config={
+	-- run settings
+    update_interval = 5,
+    out_to_console = false,
+    out_to_stderr = false,
+    total_run_times = 0,
+   
+    -- fonts settings
+    use_xft = true,
+    font = 'monospace:size=10',
+    
+    -- alignment / location
+	alignment = 'top_right',
+    -- monitor 2
+    xinerama_head = 1,
+	-- gap_x = 10,
+	gap_y = 100,
+	
+    -- window settings
+    minimum_width = 375,
+    maximum_width = 375,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,skip_taskbar,skip_pager',
+    -- own_window_argb_visual = true,
+    -- own_window_argb_value = 192,
+
+    double_buffer = true,
+	
+	
+	-- value display settings
+	uppercase = false,
+	use_spacer = 'left',
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	pad_percents = 2,
+	
+	-- colors
+	default_shade_color = 'black',
+	default_outline_color = 'white',
+	default_color = '1793d1',
+	color1 = '00FF00',
+	color2 = 'DC143C',
+
+};
+
+conky.text = [[
+#leet chars: ┤┤└└┴┴┐┐││┘┘┌┌├├┬┬┼┼┴┴── ││ ▽▼△▲▵▴▾▿
+${alignr}${offset -60}${voffset -10}${font DejaVu:Sans:size=30}${color2}gnu${color}OS${font}
+${alignr}${offset -112}${color2}▲${color}   
+${alignr}${offset 8}└──────────────┐   
+${alignr} ${nodename} -─┤  
+${alignr} ${color1}[${color} Linux ${execi 3600 uname -r | cut -c 1-8} $machine ${color1}]${color} kernel -─┤    │  
+${alignr} ${color1}[${color} $uptime ${color1}]${color} uptime -─┘    │  
+${alignr}$font │  
+${alignr} system -─┤  
+${alignr} ${color} cpu -─┤    │  
+${alignr} ${cpugraph 15,117 DC143C DC143C} ${color2}[ ${cpu cpu0}% ]${color} load -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top name 1}  ${top cpu 1} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top name 2}  ${top cpu 2} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top name 3}  ${top cpu 3} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top name 4}  ${top cpu 4} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top name 5}  ${top cpu 5} ${color2}]${color} -─┘    │    │  
+${alignr} │    │  
+${alignr} ${color} gpu -─┤    │  
+${alignr} RAM ${color2}[${alignc} ${execi 10 nvidia-settings -tq GPUUtilization | awk -F '[,= ]' '{ print $5 }'}% ]${color} GPU ${color2}[${alignc} ${execi 10 nvidia-settings -tq GPUUtilization | awk -F '[,= ]' '{ print $2 }'}% ]${color} load -─┘    │    │  
+${alignr} │    │  
+${alignr}$font processes -─┤    │  
+${alignr}$font ${color1}[${color} $processes ${color1}]${color}   total -─┤    │    │  
+${alignr}$font ${color1}[${color} $running_processes ${color1}]${color} running -─┘    │    │  
+${alignr} │    │  
+${alignr} fans -─┘    │  
+${alignr}$font ${color1}[${color} ${execi 90 inxi -s | awk '/Fan/{printf $13}'} rpm ${color1}]${color}  CPU -─┤         │  
+${alignr}$font ${color1}[${color} ${execi 90 inxi -s | awk '/Fan/{printf $7}'} rpm ${color1}]${color}  BCK -─┤         │  
+${alignr}$font ${color1}[${color} ${execi 90 inxi -s | awk '/Fan/{printf $11}'} rpm ${color1}]${color}   UP -─┤         │  
+${alignr}$font ${color1}[${color} ${execi 600 nvidia-settings -tq GPUCurrentFanSpeedRPM | awk '{ print ($1>0)? $1 " rpm" : "zzz"}'} ${color1}]${color}  GPU -─┘         │  
+${alignr}$font │  
+${alignr} resources -─┤  
+${alignr}$font ${color1}[${color} $diskio_read ${color1}]${color}  read -─┤    │  
+${alignr}$font ${color1}[${color} $diskio_write ${color1}]${color} write -─┤    │  
+${alignr}$font ${color1}[${color} $mem/$memmax ${color1}]${color}  ram -─┤    │  
+${alignr}${color1}[ ${color}${membar 5,120} ${color1}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top_mem name 1}  ${top_mem mem 1} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top_mem name 2}  ${top_mem mem 2} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top_mem name 3}  ${top_mem mem 3} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top_mem name 4}  ${top_mem mem 4} ${color2}]${color} -─┤    │    │  
+${alignr}$font ${color2}[${color} ${top_mem name 5}  ${top_mem mem 5} ${color2}]${color} -─┘    │    │  
+# ${alignr}$font ${color1}[${color} $swap/$swapmax ${color1}]${color} swap -─┤    │  
+# ${alignr}${color1}[ ${color}${swapbar 5,120} ${color1}]${color} -─┘    │    │  
+${alignr}$font ${color1}[${color} ${fs_used /}/${fs_size /} ${color1}]${color} root -─┤    │  
+${alignr}${color1}[ ${color}${fs_bar 5,120 /} ${color1}]${color} -─┘    │    │  
+${alignr}$font ${color1}[${color} ${fs_used /home}/${fs_size /home} ${color1}]${color} home -─┘    │  
+${alignr}${color1}[ ${color}${fs_bar 5,120 /home} ${color1}]${color} -─┘         │  
+${alignr}$font net -─┘  
+${alignr}${color1}[${color} ${tcp_portmon 1 32767 count} ${color1}]${color}  in / locale -─┤       
+${alignr}${color1}[${color} ${tcp_portmon 32768 61000 count} ${color1}]${color} out / remote -─┤       
+${alignr}${color1}[${color} ${addr enp4s0} ${color1}]${color} L.IP -─┤       
+${alignr}${color1}[${color} ${execi 600 curl -s ifconfig.me/ip} ${color1}]${color} P.IP -─┤       
+${alignr}${color2} ${upspeed enp4s0} k/s    ${color2}▲▲${color} -─┤       
+${alignr}${upspeedgraph enp4s0 15,120 DC143C DC143C} ${color} -─┘    │       
+${alignr}${color1} ${downspeed enp4s0} k/s    ${color1}▼▼${color} -─┘       
+${alignr}${downspeedgraph enp4s0 15,120 00FF00 00FF00} ${color} -─┘            
+]]

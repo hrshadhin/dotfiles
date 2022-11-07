@@ -6,7 +6,7 @@ if [[ "$TERM" != "linux" ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-insta
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/.bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # zsh config locations
 export ZSH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"

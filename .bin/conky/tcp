@@ -1,0 +1,50 @@
+-- This config will work on 1.10 and later versions
+
+conky.config={
+	-- run settings
+    update_interval = 5,
+    out_to_console = false,
+    out_to_stderr = false,
+    total_run_times = 0,
+   
+    -- fonts settings
+    use_xft = true,
+    font = 'monospace:size=10',
+    
+    -- alignment / location
+	alignment = 'top_left',
+    -- monitor 2
+    xinerama_head = 1,
+	gap_x = 700,
+	gap_y = 50,
+	
+    -- window settings
+    minimum_width = 680,
+    maximum_width = 680,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,skip_taskbar,skip_pager',
+    -- own_window_argb_visual = true,
+    -- own_window_argb_value = 192,
+
+    double_buffer = true,
+	
+	
+	-- value display settings
+	text_buffer_size = 2048,
+	
+	-- colors
+	default_color = '0AB1FF',
+
+};
+
+
+conky.text = [[
+ ┌─────────────┐
+┌┤  TCP / TOR  │
+│└─────────────┘
+${execi 15 ss -t -a | grep -e "ESTAB" -e "9050" | tail -n 8 | sed 's/^/├─  /' | sed 's/.$/─┤/'}
+#${execi 60 ss -t -a | grep "9050"}
+]]
+

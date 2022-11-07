@@ -16,3 +16,4 @@ run copyq
 run workrave
 run redshift-gtk -l manual
 run $HOME/.bin/quotes.sh
+run $HOME/.bin/conky/start.sh
