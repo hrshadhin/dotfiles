@@ -3,5 +3,17 @@
     "files.autoSave": "afterDelay",
     "editor.fontFamily": "'Source Code Pro', 'Hack', monospace",
     "editor.formatOnSave": true,
-    "vscode-lua-format.configPath": "/home/hbot/.config/VSCodium/User/lua-formatter.config"
+    "vscode-lua-format.configPath": "/home/hbot/.config/VSCodium/User/lua-formatter.config",
+    "redhat.telemetry.enabled": false,
+    "[yaml]": {
+    
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "keep",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
+    },
 }

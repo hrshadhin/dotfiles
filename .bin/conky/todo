@@ -1,23 +1,22 @@
 -- This config will work on 1.10 and later versions
-
-conky.config={
-	-- run settings
+conky.config = {
+    -- run settings
     update_interval = 10,
     out_to_console = false,
     out_to_stderr = false,
     total_run_times = 0,
-   
+
     -- fonts settings
     use_xft = true,
     font = 'monospace:size=10',
-    
+
     -- alignment / location
-	alignment = 'top_left',
+    alignment = 'top_left',
     -- monitor 2
     xinerama_head = 1,
-	gap_x = 1200,
-	gap_y = 330,
-	
+    gap_x = 1200,
+    gap_y = 330,
+
     -- window settings
     minimum_width = 300,
     maximum_width = 350,
@@ -30,15 +29,14 @@ conky.config={
 
     double_buffer = true,
 
-	-- colors
-	default_color = '0AB1FF',
+    -- colors
+    default_color = '0AB1FF'
 };
-
 
 conky.text = [[
        ┌─────────────┐
 ●──────┤ TODO / RMBR │
        └─────────────┘
-${execpi 300 $HOME/.local/bin/gcalcli --nocolor agenda $(date +'%Y-%m-%d') $(date +'%Y-%m-%d' -d "1days") | cut -c12- | tail -n +2}
+${execpi 300 khal list -f "{start-time}-{end-time}  {title}" -df "" today 1d}
 ]]
 

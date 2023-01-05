@@ -1,2 +1,2 @@
-editor: vi
+editor: vim
 apiEndpoint: https://power.infcloud.xyz/api

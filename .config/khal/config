@@ -1,0 +1,15 @@
+[calendars]
+
+[[hrs_calendar_local]]
+path = ~/.calendars/*
+type = discover
+
+[locale]
+timeformat = %H:%M
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
+
+[default]
+default_calendar = 7deb9ec5-97db-a003-6ffe-9c4b2433d05c

@@ -362,6 +362,10 @@ globalkeys = gears.table.join(
         {description = "chromium dev profile", group = "applications"}),
     awful.key({modkey, altkey}, "o", function() awful.spawn.with_shell(string.format("%s/.config/awesome/riis.sh browser-office", os.getenv("HOME"))) end,
         {description = "chromium office profile", group = "applications"}),
+    awful.key({modkey, altkey}, "f", function() awful.util.spawn("pcmanfm") end,
+        {description = "pcmanfm", group = "applications"}),
+    awful.key({modkey, altkey}, "t", function() awful.util.spawn("telegram-desktop") end,
+        {description = "telegram", group = "applications"}),
 
     -- Screenshot
     awful.key({}, "Print", function() awful.spawn.with_shell(screenshot_full_cmd) end,
