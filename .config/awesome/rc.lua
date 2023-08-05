@@ -75,7 +75,7 @@ local screenshot_selection_cmd = "coreshot -s " .. screenshot_save_path
 
 -- awesome variables
 awful.util.terminal = terminal
-awful.util.tagnames = {"", "", "", "", "ﳜ", "", "", "", ""} -- use nerd fonts to view icons
+awful.util.tagnames = {"", "", "󰅩", "󰭹", "󰕼", "󱂵", "󱗼", "", ""} -- use nerd fonts to view icons
 -- awful.util.tagnames = {"TERM", "WWW", "DEV", "CHAT", "MEDIA", "FILES", "XYZ", "h@X0r", "vBox"}
 
 -- Table of layouts to cover with awful.layout.inc, order matters.

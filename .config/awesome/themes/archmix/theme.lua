@@ -15,7 +15,7 @@ theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/archmix"
 theme.wallpaper = theme.dir .. "/background.jpg"
 theme.font = "Terminus 14"
 theme.icon_font = "Source Code Pro 16"
-theme.taglist_font = "Source Code Pro 22"
+theme.taglist_font = "Source Code Pro 18"
 theme.bg_normal = "#0b4968"
 theme.bg_focus = "#1793d1"
 theme.bg_urgent = "#e53834"
@@ -134,7 +134,7 @@ local function mywidget(icon, wbox, colorLine, fgcolor, leftIn, rightIn, underLi
         },
         left = wiboxMargin,
         right = wiboxMargin,
-        bottom = 2,
+        bottom = 1,
         layout = wibox.container.margin
     }
 end
@@ -172,7 +172,7 @@ local membox = mywidget(memicon, mem, theme.color0B, theme.wibar_fg, 0, 0, theme
 
 -- CPU
 local cpuicon = wibox.widget.textbox()
-cpuicon:set_markup(markup.fontfg(theme.icon_font, theme.color0C, ""))
+cpuicon:set_markup(markup.fontfg(theme.icon_font, theme.color0C, ""))
 local cpu = lain.widget.cpu({
     settings = function() widget:set_markup(markup.fontfg(theme.font, theme.wibar_fg, " " .. cpu_now.usage .. "% ")) end
 })
@@ -180,7 +180,7 @@ local cpubox = mywidget(cpuicon, cpu, theme.color0C, theme.wibar_fg, 0, 0, theme
 
 -- CPU Temp
 local ctempicon = wibox.widget.textbox();
-ctempicon:set_markup(markup.fontfg("Source Code Pro 12", theme.color08, " "))
+ctempicon:set_markup(markup.fontfg("Source Code Pro 12", theme.color08, " "))
 local ctemp = hrs.widget.temp({
     tempfile = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
     timeout = 60,
@@ -191,7 +191,7 @@ local cputempbox = mywidget(ctempicon, ctemp.widget, theme.color08, theme.wibar_
 
 -- GPU Temp
 local gtempicon = wibox.widget.textbox();
-gtempicon:set_markup(markup.fontfg("Source Code Pro 12", theme.color0F, " "))
+gtempicon:set_markup(markup.fontfg("Source Code Pro 12", theme.color0F, "󰘚 "))
 local gtemp = hrs.widget.temp({
     tempcmd = "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
     timeout = 60,
@@ -273,7 +273,7 @@ local batbox = mywidget(baticon, bat.widget, theme.color0D, theme.wibar_fg, 0, 0
 
 -- Net
 local neticon = wibox.widget.textbox();
-neticon:set_markup(markup.fontfg(theme.icon_font, theme.color0E, ""))
+neticon:set_markup(markup.fontfg(theme.icon_font, theme.color0E, "󰈀"))
 local net = lain.widget.net({
     settings = function()
         widget:set_markup(markup.fontfg(theme.font, theme.wibar_fg,
@@ -284,7 +284,7 @@ local netbox = mywidget(neticon, net.widget, theme.color0E, theme.wibar_fg, 0, 0
 
 -- Pulse volume
 local volicon = wibox.widget.textbox();
-volicon:set_markup(markup.fontfg(theme.icon_font, theme.color0D, "墳 "))
+volicon:set_markup(markup.fontfg(theme.icon_font, theme.color0D, " "))
 local volume = hrs.widget.pulse({settings = function() widget:set_markup(markup.font(theme.font, volume_now)) end})
 theme.volume = volume
 local volumebox = mywidget(volicon, volume.widget, theme.color0D, theme.wibar_fg, 0, 0, theme.box_unline,
@@ -292,7 +292,7 @@ local volumebox = mywidget(volicon, volume.widget, theme.color0D, theme.wibar_fg
 
 -- Mail IMAP check
 local mailicon = wibox.widget.textbox();
-mailicon:set_markup(markup.fontfg(theme.icon_font, theme.color0B, ""))
+mailicon:set_markup(markup.fontfg(theme.icon_font, theme.color0B, ""))
 local mail = hrs.widget.mail({
     settings = function() widget:set_markup(markup.font(theme.font, " " .. Totalmail .. " ")) end
 })
@@ -300,7 +300,7 @@ local mailbox = mywidget(mailicon, mail.widget, theme.color0B, theme.wibar_fg, 0
 
 -- Textclock
 local clockicon = wibox.widget.textbox()
-clockicon:set_markup(markup.fontfg(theme.icon_font, theme.color0F, ""))
+clockicon:set_markup(markup.fontfg(theme.icon_font, theme.color0F, "󰃰"))
 local clock = wibox.widget.textclock(markup.fontfg(theme.font, theme.wibar_fg, " %H:%M"), 1)
 local clockbox = mywidget(clockicon, clock, theme.color0F, theme.wibar_fg, 0, 0, theme.box_unline, theme.box_margin)
 

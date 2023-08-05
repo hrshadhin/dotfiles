@@ -19,7 +19,7 @@ local function factory(args)
 
     local mail = {widget = args.widget or wibox.widget.textbox()}
     local timeout = args.timeout or 3600
-    local cmd = args.cmd or string.format("python3 %s/.config/awesome/hrs/widget/check_gmail.py", os.getenv("HOME"))
+    local cmd = args.cmd or string.format("%s/.config/awesome/venv/bin/python %s/.config/awesome/hrs/widget/check_gmail.py", os.getenv("HOME"), os.getenv("HOME"))
     local notification_preset = args.notification_preset or {}
     local settings = args.settings or function() end
     local notification_text = " N/A "

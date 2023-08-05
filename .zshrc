@@ -135,3 +135,8 @@ export ARCHFLAGS="-arch x86_64"
 
 ### RANDOM COLOR SCRIPT ###
 colorscript random
+
+### Ruby ENV manage
+if [[ "$TERM" != "linux" ]]; then
+   eval "$(rbenv init - zsh)"
+fi

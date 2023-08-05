@@ -16,7 +16,15 @@ killall conky
 # start multiple scripts
 conky -c "$HOME/.bin/conky/conkyrc" &
 conky -c "$HOME/.bin/conky/tcp" &
-conky -c "$HOME/.bin/conky/net_speed" & 
-conky -c "$HOME/.bin/conky/todo" & 
-conky -c "$HOME/.bin/conky/news" & 
+conky -c "$HOME/.bin/conky/net_speed" &
+conky -c "$HOME/.bin/conky/todo" &
+conky -c "$HOME/.bin/conky/news" &
 conky -c "$HOME/.bin/conky/coins" & exit
+
+# If system conky has bugs then use specific version appimage
+#$HOME/.bin/conky.AppImage -c "$HOME/.bin/conky/conkyrc" &
+#$HOME/.bin/conky.AppImage -c "$HOME/.bin/conky/tcp" &
+#$HOME/.bin/conky.AppImage -c "$HOME/.bin/conky/net_speed" &
+#$HOME/.bin/conky.AppImage -c "$HOME/.bin/conky/todo" &
+#$HOME/.bin/conky.AppImage -c "$HOME/.bin/conky/news" &
+#$HOME/.bin/conky.AppImage -c "$HOME/.bin/conky/coins" & exit
